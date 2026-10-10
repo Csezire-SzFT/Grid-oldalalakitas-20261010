@@ -1,0 +1,106 @@
+main, header, nav, article, aside, footer, section {
+    border: 2px solid green;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+main {
+    margin: 0px;
+    padding: 0px;
+    display:grid;
+    grid-template-columns: 2fr 7fr 3fr;
+    grid-template-areas: "he he he"
+                         "nv nv nv"
+                         "ab ar aj"
+                         "fo fo fo";
+    gap: 10px;                        
+}
+
+
+header {
+    grid-area:he;
+    background:black;
+    padding: 10px;
+    font-size: 2em;
+    color: cyan;
+    
+}
+
+
+nav {
+    grid-area:nv;
+    background-color: gray;
+    padding: 0px;
+}
+
+nav ul {
+    display: grid;
+    grid-template-columns: 10% 10% 10% 10% 10%;
+    list-style-type: none;
+}
+
+nav ul li a {
+    color: yellow;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.bal {
+    grid-area:ab;
+}
+
+.jobb {
+    grid-area:aj;
+}
+
+.bal, .jobb {
+    background-color: blue;
+    color: yellowgreen;
+}
+
+article {
+    grid-area:ar; 
+    background-color: black;
+    color: whitesmoke;
+}
+
+.bal, section {
+    padding: 10px;
+}
+
+footer {
+    grid-area:fo;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+h1 {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+p {
+    text-indent: 1em;
+    text-align: justify;
+}
+
+/* reszponzivitás kialakítása */
+/* minden megjelenítő eszközön "jól néz ki" /*
+/* töréspontokat használunk */
+@media screen and (max-width: 600px) {
+    nav ul {
+        grid-template-columns: 33% 33% 33%;
+    }
+    main {
+        grid-template-columns: 3fr 1fr;
+        grid-template-areas: "he he"
+                             "nv nv"
+                             "ar ab"
+                             "ar aj"
+                             "fo fo";   
+        gap: 10px;                     
+    }       
+}
+
+
+
