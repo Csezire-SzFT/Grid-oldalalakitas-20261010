@@ -4,6 +4,7 @@ main, header, nav, article, aside, footer, section {
     padding: 5px;
 }
 
+
 main {
     margin: 0px;
     padding: 0px;
@@ -13,7 +14,8 @@ main {
                          "nv nv nv"
                          "ab ar aj"
                          "fo fo fo";
-    gap: 10px;                        
+    gap: 10px;
+    align-items: first baseline;  /* aling-content is lehet bizonyos esetekben*/                          
 }
 
 
@@ -45,6 +47,7 @@ nav ul li a {
     font-weight: bold;
 }
 
+
 .bal {
     grid-area:ab;
 }
@@ -58,20 +61,37 @@ nav ul li a {
     color: yellowgreen;
 }
 
+
 article {
     grid-area:ar; 
     background-color: black;
     color: whitesmoke;
+    display:grid;
+    grid-template-columns: 4fr 3fr;
+    grid-template-areas: "ar ar"
 }
 
 .bal, section {
     padding: 10px;
 }
 
+
+p {
+    text-indent: 1em;
+    text-align: justify;
+}
+
+
 footer {
     grid-area:fo;
-    text-align: center;
+    background-color: yellow;
+}
+
+footer p {
     font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    margin: 0px;
 }
 
 h1 {
@@ -79,18 +99,11 @@ h1 {
     font-weight: bold;
 }
 
-p {
-    text-indent: 1em;
-    text-align: justify;
-}
 
 /* reszponzivitás kialakítása */
 /* minden megjelenítő eszközön "jól néz ki" /*
 /* töréspontokat használunk */
-@media screen and (max-width: 600px) {
-    nav ul {
-        grid-template-columns: 33% 33% 33%;
-    }
+@media screen and (max-width: 900px) {
     main {
         grid-template-columns: 3fr 1fr;
         grid-template-areas: "he he"
@@ -99,8 +112,14 @@ p {
                              "ar aj"
                              "fo fo";   
         gap: 10px;                     
-    }       
+
+    article {
+        grid-template-columns: 3fr;
+        grid-template-areas: "ar"
+    }
+
+    nav ul {
+        grid-template-columns: 33% 33% 33%;
+    }
+    } 
 }
-
-
-
